@@ -1,0 +1,10 @@
+mute=$(pulsemixer --get-mute)
+
+        if [[ mute -eq 0 ]];
+        then
+        pulse=$(pulsemixer --get-volume)
+                echo "| VOL" ${pulse:0:3}
+        else
+                echo Mute
+        fi
+

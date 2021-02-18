@@ -1,0 +1,13 @@
+AC=$(cat /sys/class/power_supply/AC/online)
+	if [[ AC -eq 0 ]];
+	then
+		bat=$(cat /sys/class/power_supply/BAT0/capacity)
+		echo $bat% "DIS"
+	elif [[ -d /sys/class/power_supply/BAT0/ ]];
+	then
+	      	bat=$(cat /sys/class/power_supply/BAT0/capacity)
+		echo $bat% "CHR"
+	else
+	  echo "AC"
+	fi
+
